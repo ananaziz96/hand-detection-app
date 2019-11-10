@@ -38,7 +38,8 @@ function runDetection() {
     console.log(predictions);
     model.renderPredictions(predictions, canvas, context, video);
     if (predictions.length > 0) {
-      audio.play();
+      //audio.play();
+      readOutLoud();
     }
   });
 }
@@ -46,3 +47,17 @@ function runDetection() {
 handTrack.load(modelParams).then(lmodel => {
   model = lmodel;
 });
+
+//Speech
+
+function readOutLoud() {
+  const speech = new SpeechSynthesisUtterance();
+
+  speech.text = "put your hands down";
+
+  speech.volume = 1;
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  window.speechSynthesis.speak(speech);
+}
