@@ -49,7 +49,6 @@ handTrack.load(modelParams).then(lmodel => {
 });
 
 //Speech
-
 function readOutLoud() {
   const speech = new SpeechSynthesisUtterance();
 
